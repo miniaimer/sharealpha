@@ -20,13 +20,18 @@ public class Share {
     static public long GetCoins(Activity activity){
         ContentValues newValues = new ContentValues();
         Cursor c = activity.getContentResolver().query(CONTENT_URI, null, null, null, null);
-        if (c.moveToFirst()) {
-            do {
-                if (c.getString(0).equals("1")){
-                    return c.getLong(1);
-                }
-            } while (c.moveToNext());
+        try {
+            if (c.moveToFirst()) {
+                do {
+                    if (c.getString(0).equals("1")){
+                        return c.getLong(1);
+                    }
+                } while (c.moveToNext());
+            }
+            return -1;
+        }catch (Exception e){
+            return 0;
         }
-        return -1;
+
     }
 }
