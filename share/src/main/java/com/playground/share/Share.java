@@ -6,11 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 
 public class Share {
-    static String AUTHORITY = "com.playground.architecture.provider.CoinContentProvider";
-    static String CONTENT_PATH = "coin_database";
-    static String URL = "content://$AUTHORITY/$CONTENT_PATH";
+    static String URL = "content://com.playground.architecture.provider.CoinContentProvider/coin_database";
     static Uri CONTENT_URI  = Uri.parse(URL);
-    static String _ID = "id";
     static String VALUE = "coin";
     static public void UpdateCoins(Activity activity, long coinValue){
           ContentValues newValues = new ContentValues();
