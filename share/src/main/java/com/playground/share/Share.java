@@ -17,7 +17,7 @@ public class Share {
           newValues.put(VALUE, coinValue);
           activity.getContentResolver().update(CONTENT_URI,newValues,null,null);
       }
-    public long GetCoins(Activity activity){
+    static public long GetCoins(Activity activity){
         ContentValues newValues = new ContentValues();
         Cursor c = activity.getContentResolver().query(CONTENT_URI, null, null, null, null);
         if (c.moveToFirst()) {
