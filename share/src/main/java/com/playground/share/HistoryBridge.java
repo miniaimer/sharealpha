@@ -7,7 +7,8 @@ import android.net.Uri;
 public class HistoryBridge {
     static String URL = "content://com.playground.architecture.provider.HistoryContentProvider/HistoryData_Database";
     static Uri CONTENT_URI  = Uri.parse(URL);
-    static public String InsertNote(Activity activity, HistoryData historyData){
+
+    static public String InsertHistory(Activity activity, HistoryData historyData){
         ContentValues newValues = new ContentValues();
         newValues.put("Id", historyData.getId());
         newValues.put("PackageName", historyData.getPackageName());
@@ -21,7 +22,5 @@ public class HistoryBridge {
         }catch (Exception e){
             return e.getMessage();
         }
-
-
     }
 }
