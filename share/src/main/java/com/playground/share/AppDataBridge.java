@@ -27,11 +27,21 @@ public class AppDataBridge {
             Log.e("AppDataBridge", "onServiceDisconnected");
         }
     };
+    //initiate connection to dashboard
     public static void createConnection(Activity activity){
         Intent intent = new Intent("AppDataService");
         intent.setPackage("com.playground.architecture");
         activity.bindService(intent,mConnection, BIND_AUTO_CREATE);
     }
+    public static void updateTime(Activity activity){
+        try {
+          iAppDataAidlInterface.updateAppData(activity.getPackageName());
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+    //run the function to add 10 points on the dashboard
     public static String add10points(Activity activity){
         try {
            String text = iAppDataAidlInterface.Add10Points(activity.getPackageName());
