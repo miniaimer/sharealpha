@@ -1,7 +1,7 @@
 package com.playground.share;
 
 public class HistoryData {
-    String Id;
+    Integer Id;
     String PackageName;
     String AppName;
     Integer Point;
@@ -11,7 +11,7 @@ public class HistoryData {
     public HistoryData() {
     }
 
-    public HistoryData(String id, String packageName,String appName, Integer point, String appThumbnailUrl, String customData) {
+    public HistoryData(Integer id, String packageName,String appName, Integer point, String appThumbnailUrl, String customData) {
         Id = id;
         PackageName = packageName;
         AppName = appName;
@@ -20,11 +20,11 @@ public class HistoryData {
         CustomData = customData;
     }
 
-    public String getId() {
+    public Integer getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         Id = id;
     }
 
