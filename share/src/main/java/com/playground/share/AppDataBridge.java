@@ -17,6 +17,7 @@ public class AppDataBridge {
     public static ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+
             iAppDataAidlInterface = IAppDataAidlInterface.Stub.asInterface(iBinder);
             Log.e("AppDataBridge", "onServiceConnected");
         }
@@ -33,22 +34,13 @@ public class AppDataBridge {
         intent.setPackage("com.playground.architecture");
         activity.bindService(intent,mConnection, BIND_AUTO_CREATE);
     }
-    public static void updateTime(Activity activity){
+    public static void InsertHistoryAndUpdateCoins(String activity,String type){
         try {
-          iAppDataAidlInterface.updateAppData(activity.getPackageName());
-
+          iAppDataAidlInterface.updateAppData(activity,type);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
     //run the function to add 10 points on the dashboard
-    public static String add10points(Activity activity){
-        try {
-           String text = iAppDataAidlInterface.Add10Points(activity.getPackageName());
-           return text;
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            return "fail";
-        }
-    }
+
 }
