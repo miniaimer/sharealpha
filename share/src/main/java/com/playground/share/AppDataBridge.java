@@ -19,13 +19,13 @@ public class AppDataBridge {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
 
             iAppDataAidlInterface = IAppDataAidlInterface.Stub.asInterface(iBinder);
-            Log.e("AppDataBridge", "onServiceConnected");
+            Log.e("AppDataBridge", "ServiceConnected");
         }
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
             iAppDataAidlInterface = null;
-            Log.e("AppDataBridge", "onServiceDisconnected");
+            Log.e("AppDataBridge", "ServiceDisconnected");
         }
     };
     //initiate connection to dashboard
